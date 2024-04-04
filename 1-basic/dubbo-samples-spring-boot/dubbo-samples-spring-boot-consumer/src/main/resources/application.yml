@@ -1,8 +1,31 @@
 
 dubbo:
   application:
-      name: dubbo-springboot-demo-consumer
-      logger: slf4j
-      qos-port: 33333
+    name: dubbo-springboot-demo-consumer
+    register-mode: instance
+    metadata-type: local
+    qos-enable: false
+    logger: slf4j
+#  registry:
+#    address: zookeeper://dusp.zookeeper:21811
+  config-center:
+    address: nacos://dubbo.nacos:38848
+    username: nacos
+    password: app@qwe123
+    namespace: dev
+    group: dubbo
   registry:
-    address: zookeeper://dusp.zookeeper:21811
+    address: nacos://dubbo.nacos:38848
+    username: nacos
+    password: app@qwe123
+    parameters:
+      namespace: dev
+    group: dubbo
+    cluster: default
+  metadata-report:
+    address: nacos://dubbo.nacos:38848
+    username: nacos
+    password: app@qwe123
+    parameters:
+      namespace: dev
+    group: dubbo
