@@ -1,13 +1,11 @@
 
 dubbo:
   application:
-    name: dubbo-springboot-demo-consumer
+    name: dubbo-consumer
     register-mode: instance
     metadata-type: local
     qos-enable: false
     logger: slf4j
-#  registry:
-#    address: zookeeper://dusp.zookeeper:21811
   config-center:
     address: nacos://dubbo.nacos:38848
     username: nacos

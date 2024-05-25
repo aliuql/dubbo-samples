@@ -1,34 +1,36 @@
-
 dubbo:
-  application:
-    name: dubbo-springboot-demo-provider
-    register-mode: instance
-    metadata-type: local
-    qos-enable: false
-    logger: slf4j
-  protocol:
-    name: tri
-    port: 50052
-#  registry:
-#    address: zookeeper://dusp.zookeeper:21811
-  config-center:
-    address: nacos://dubbo.nacos:38848
-    username: nacos
-    password: app@qwe123
-    namespace: dev
-    group: dubbo
-  registry:
-    address: nacos://dubbo.nacos:38848
-    username: nacos
-    password: app@qwe123
-    parameters:
-      namespace: dev
-    group: dubbo
-    cluster: default
-  metadata-report:
-    address: nacos://dubbo.nacos:38848
-    username: nacos
-    password: app@qwe123
-    parameters:
-      namespace: dev
-    group: dubbo
+    application:
+        name: dubbo-provider
+        register-mode: instance
+        metadata-type: local
+        qos-enable: false
+        logger: slf4j
+    config-center:
+        address: nacos://dubbo.nacos:38848
+        username: nacos
+        password: app@qwe123
+        namespace: dev
+        group: dubbo
+        check: true
+        timeout: 300000
+    protocol:
+        name: tri
+        port: 50052
+    registry:
+        address: nacos://dubbo.nacos:38848
+        username: nacos
+        password: app@qwe123
+        group: dubbo
+        cluster: default
+        parameters:
+            namespace: dev
+    metadata-report:
+        address: nacos://dubbo.nacos:38848
+        username: nacos
+        password: app@qwe123
+        group: dubbo
+        parameters:
+            namespace: dev
+    service:
+        org.apache.dubbo.springboot.demo.DemoService.sayHello.timeout: 40000
+        org.apache.dubbo.springboot.demo.DemoService.timeout: 30000
