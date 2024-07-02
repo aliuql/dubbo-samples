@@ -25,24 +25,25 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 @Component
-public class Task implements CommandLineRunner {
+public class Task2 implements CommandLineRunner {
+
     @DubboReference(
-            timeout = 11000,
+            timeout = 12000,
             methods = {
-                    @Method(name = "sayHello", timeout = 21000)
+                    @Method(name = "sayHello", timeout = 22000)
             })
-    private DemoService demoService;
+    private DemoService demoService2;
 
     @Override
     public void run(String... args) throws Exception {
-        String result = demoService.sayHello("world");
+        String result = demoService2.sayHello("world");
         System.out.println("Receive result ======> " + result);
 
         new Thread(()-> {
             while (true) {
                 try {
                     Thread.sleep(1000);
-                    System.out.println(new Date() + " Receive result ======> " + demoService.sayHello("world"));
+                    System.out.println(new Date() + " Receive result ======> " + demoService2.sayHello("world"));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     Thread.currentThread().interrupt();

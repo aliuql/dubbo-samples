@@ -1,7 +1,7 @@
 dubbo:
     application:
         name: dubbo-provider
-        register-mode: instance
+        register-mode: all
         metadata-type: local
         qos-enable: false
         logger: slf4j
