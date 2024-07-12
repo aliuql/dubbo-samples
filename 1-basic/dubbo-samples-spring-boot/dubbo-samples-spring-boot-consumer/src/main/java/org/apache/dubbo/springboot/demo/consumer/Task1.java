@@ -20,11 +20,10 @@ import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Method;
 import org.apache.dubbo.springboot.demo.DemoService;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Component
+//@Component
 public class Task1 implements CommandLineRunner {
     @DubboReference(
             timeout = 11000,
