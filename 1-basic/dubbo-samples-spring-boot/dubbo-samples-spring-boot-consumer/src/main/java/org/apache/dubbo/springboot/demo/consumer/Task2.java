@@ -25,24 +25,25 @@ import java.util.Date;
 
 //@Component
 public class Task2 implements CommandLineRunner {
-
     @DubboReference(
+            version = "1.0",
+            group = "test1",
             timeout = 12000,
             methods = {
                     @Method(name = "sayHello", timeout = 22000)
             })
-    private DemoService demoService2;
+    private DemoService demoService;
 
     @Override
     public void run(String... args) throws Exception {
-        String result = demoService2.sayHello("world");
+        String result = demoService.sayHello("world");
         System.out.println("Receive result ======> " + result);
 
         new Thread(()-> {
             while (true) {
                 try {
                     Thread.sleep(1000);
-                    System.out.println(new Date() + " Receive result ======> " + demoService2.sayHello("world"));
+                    System.out.println(new Date() + " Receive result ======> " + demoService.sayHello("world"));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     Thread.currentThread().interrupt();

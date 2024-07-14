@@ -1,15 +1,12 @@
 package org.apache.dubbo.springboot.demo;
 
-public class DemoServiceDubboProxy1000 {}
+public class DemoServiceDubboProxy000 {}
 /*
-public class DemoServiceDubboProxy0 implements ClassGenerator.DC, DemoService, EchoService, Destroyable {
+public class DemoServiceDubboProxy000 implements DemoService, EchoService, Destroyable {
     public static Method[] methods; // 来自各个接口的 Method 对象
     private InvocationHandler handler;
 
-    public DemoServiceDubboProxy0() {
-    }
-
-    public DemoServiceDubboProxy0(InvocationHandler handler) {
+    public DemoServiceDubboProxy000(InvocationHandler handler) {
         this.handler = handler;
     }
 

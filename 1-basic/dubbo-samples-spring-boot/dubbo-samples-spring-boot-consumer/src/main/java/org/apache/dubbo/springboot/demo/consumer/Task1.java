@@ -26,6 +26,8 @@ import java.util.Date;
 //@Component
 public class Task1 implements CommandLineRunner {
     @DubboReference(
+            version = "1.0",
+            group = "test1",
             timeout = 11000,
             methods = {
                     @Method(name = "sayHello", timeout = 21000)
