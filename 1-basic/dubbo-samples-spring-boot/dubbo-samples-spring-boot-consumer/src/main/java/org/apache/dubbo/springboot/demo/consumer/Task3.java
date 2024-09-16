@@ -18,36 +18,33 @@ package org.apache.dubbo.springboot.demo.consumer;
 
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Method;
-import org.apache.dubbo.rpc.RpcContext;
 import org.apache.dubbo.springboot.demo.DemoService;
 
 import java.util.Date;
 
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
-@Component
-public class Task implements CommandLineRunner {
+//@Component
+public class Task3 implements CommandLineRunner {
     @DubboReference(
-            version = "1.0",
-            group = "test1",
-            timeout = 11000,
+            version = "2.0",
+            group = "test2",
+            timeout = 13000,
             methods = {
-                    @Method(name = "sayHello", timeout = 21000)
+                    @Method(name = "sayHello", timeout = 23000)
             })
-    private DemoService demoService;
+    private DemoService demoService2;
 
     @Override
     public void run(String... args) throws Exception {
-        RpcContext.getClientAttachment().getObjectAttachments().put("dubbo.tag", "gray");
-        String result = demoService.sayHello("world");
+        String result = demoService2.sayHello("world");
         System.out.println("Receive result ======> " + result);
 
         new Thread(()-> {
             while (true) {
                 try {
                     Thread.sleep(1000);
-                    System.out.println(new Date() + " Receive result ======> " + demoService.sayHello("world"));
+                    System.out.println(new Date() + " Receive result ======> " + demoService2.sayHello("world"));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     Thread.currentThread().interrupt();
