@@ -8,7 +8,6 @@ import org.apache.dubbo.springboot.demo.DemoService;
         version = "2.0",
         group = "test2",
         timeout = 10000,
-        protocol = "dubbo,tri",
         methods = {
                 @Method(name = "sayHello", timeout = 20000)
         })

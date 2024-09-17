@@ -12,12 +12,13 @@ dubbo:
         namespace: dev
         group: dubbo
     protocols:
-        tri:
-            name: tri
-            port: 50052
+#        tri:
+#            name: tri
+#            port: 50052
         dubbo:
             name: dubbo
             port: 38008
+            heartbeat: 36000000
     registry:
         address: nacos://dubbo.nacos:38848
         username: nacos

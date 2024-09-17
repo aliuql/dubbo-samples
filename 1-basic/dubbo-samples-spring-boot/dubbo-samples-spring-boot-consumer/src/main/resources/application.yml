@@ -26,6 +26,8 @@ dubbo:
         parameters:
             namespace: dev
         group: dubbo
+    protocol:
+      heartbeat: 36000000
     reference:
         org.apache.dubbo.springboot.demo.DemoService.sayHello.timeout: 41000
         org.apache.dubbo.springboot.demo.DemoService.timeout: 31000
