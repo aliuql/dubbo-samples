@@ -16,19 +16,23 @@
  */
 package org.apache.dubbo.springboot.demo.consumer;
 
-import org.apache.dubbo.common.Result;
+import org.apache.dubbo.common.core.CupsContext;
+import org.apache.dubbo.common.core.Result;
+import org.apache.dubbo.common.util.TimeUtil;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Method;
 import org.apache.dubbo.rpc.RpcContext;
 import org.apache.dubbo.springboot.demo.DemoService;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Task implements CommandLineRunner {
+
     @DubboReference(
             version = "1.0",
             group = "test1",
@@ -39,32 +43,29 @@ public class Task implements CommandLineRunner {
     private DemoService demoService;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         for (int i = 0; i < 1; i++) {
             System.out.println("-----------------------------------------------------------------");
             RpcContext.getClientAttachment().getObjectAttachments().put("dubbo.tag", "gray");
-            Result<String> result = demoService.sayHello("world");
+
+            CupsContext<String> context = new CupsContext<>();
+            context.setInstNo("1001");
+            context.setSubInstNo("10010001");
+            context.setChannelNo("ATM");
+            context.setData("world");
+
+            Result<List<String>> result = demoService.sayHello(context);
             result.isSuccess();
+
             System.out.println(new Date() + " Receive result ======> " + result);
         }
 
         System.out.println("-----------------------------------------------------------------");
 
-        new Thread(()-> {
+        new Thread(() -> {
             while (true) {
-                try {
-                    Thread.sleep(1000);
-
-                    RpcContext.getClientAttachment().getObjectAttachments().put("dubbo.tag", "gray");
-                    Result<String> result = demoService.sayHello("world");
-                    result.isSuccess();
-                    System.out.println(new Date() + " Receive result ======> " + result);
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    Thread.currentThread().interrupt();
-                }
+                TimeUtil.sleepSeconds(1);
             }
         }).start();
     }

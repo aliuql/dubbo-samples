@@ -16,9 +16,12 @@
  */
 package org.apache.dubbo.springboot.demo;
 
-import org.apache.dubbo.common.Result;
+import org.apache.dubbo.common.core.CupsContext;
+import org.apache.dubbo.common.core.Result;
+
+import java.util.List;
 
 public interface DemoService {
 
-    Result<String> sayHello(String name);
+    Result<List<String>> sayHello(CupsContext context);
 }

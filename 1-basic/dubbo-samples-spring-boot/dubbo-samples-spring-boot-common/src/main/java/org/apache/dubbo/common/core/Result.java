@@ -1,4 +1,4 @@
-package org.apache.dubbo.common;
+package org.apache.dubbo.common.core;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package org.apache.dubbo.common;
+package org.apache.dubbo.common.core;
 
 public enum ErrorStatus implements IErrorStatus {
 

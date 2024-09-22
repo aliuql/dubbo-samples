@@ -1,4 +1,4 @@
-package org.apache.dubbo.common;
+package org.apache.dubbo.common.core;
 
 public class BizException extends RuntimeException
 {

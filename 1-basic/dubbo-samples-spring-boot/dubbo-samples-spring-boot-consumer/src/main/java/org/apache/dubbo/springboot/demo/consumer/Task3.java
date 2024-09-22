@@ -16,12 +16,9 @@
  */
 package org.apache.dubbo.springboot.demo.consumer;
 
-import org.apache.dubbo.common.Result;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Method;
 import org.apache.dubbo.springboot.demo.DemoService;
-
-import java.util.Date;
 
 import org.springframework.boot.CommandLineRunner;
 
@@ -38,19 +35,27 @@ public class Task3 implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Result<String> result = demoService2.sayHello("world");
-        System.out.println("Receive result ======> " + result);
 
-        new Thread(()-> {
-            while (true) {
-                try {
-                    Thread.sleep(1000);
-                    System.out.println(new Date() + " Receive result ======> " + demoService2.sayHello("world"));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    Thread.currentThread().interrupt();
-                }
-            }
-        }).start();
+//        for (int i = 0; i < 1; i++) {
+//            System.out.println("-----------------------------------------------------------------");
+//            RpcContext.getClientAttachment().getObjectAttachments().put("dubbo.tag", "gray");
+//            Result<List<String>> result = demoService2.sayHello("world");
+//            result.isSuccess();
+//            System.out.println(new Date() + " Receive result ======> " + result);
+//        }
+//
+//        System.out.println("-----------------------------------------------------------------");
+//
+//        new Thread(()-> {
+//            while (true) {
+//                TimeUtil.sleepSeconds(1);
+//
+//                RpcContext.getClientAttachment().getObjectAttachments().put("dubbo.tag", "gray");
+//                Result<List<String>> result = demoService2.sayHello("world");
+//                result.isSuccess();
+//
+//                System.out.println(new Date() + " Receive result ======> " + result);
+//            }
+//        }).start();
     }
 }

@@ -1,7 +1,10 @@
 package org.apache.dubbo.springboot.demo.provider;
 
-import org.apache.dubbo.common.Result;
+import org.apache.dubbo.common.core.CupsContext;
+import org.apache.dubbo.common.core.Result;
 import org.apache.dubbo.springboot.demo.DemoService;
+
+import java.util.List;
 
 //@DubboService(
 //        version = "2.0",
@@ -12,9 +15,15 @@ import org.apache.dubbo.springboot.demo.DemoService;
 //        })
 public class DemoServiceImpl2 implements DemoService {
 
+
     @Override
-    public Result<String> sayHello(String name) {
-        return new Result<>("Hello" + name);
+    public Result<List<String>> sayHello(CupsContext context) {
+        //throw new BizException(ErrorStatus.FAIL);
+//        System.out.println("request context: " + context);
+//        List<String> messages = new ArrayList<>();
+//        messages.add("Hello " + context.getName());
+//        messages.add("My name is aliuql");
+        return new Result<>();
     }
 
 }
