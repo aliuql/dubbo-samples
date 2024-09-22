@@ -16,12 +16,14 @@
  */
 package org.apache.dubbo.springboot.demo.consumer;
 
+import org.apache.dubbo.common.Result;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Method;
 import org.apache.dubbo.springboot.demo.DemoService;
-import org.springframework.boot.CommandLineRunner;
 
 import java.util.Date;
+
+import org.springframework.boot.CommandLineRunner;
 
 //@Component
 public class Task2 implements CommandLineRunner {
@@ -36,7 +38,7 @@ public class Task2 implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String result = demoService2.sayHello("world");
+        Result<String> result = demoService2.sayHello("world");
         System.out.println("Receive result ======> " + result);
 
         new Thread(()-> {

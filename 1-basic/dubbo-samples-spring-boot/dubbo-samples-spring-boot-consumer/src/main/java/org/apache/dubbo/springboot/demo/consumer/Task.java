@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.springboot.demo.consumer;
 
+import org.apache.dubbo.common.Result;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Method;
 import org.apache.dubbo.rpc.RpcContext;
@@ -39,9 +40,16 @@ public class Task implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        RpcContext.getClientAttachment().getObjectAttachments().put("dubbo.tag", "gray");
-        String result = demoService.sayHello("world");
-        System.out.println("Receive result ======> " + result);
+
+        for (int i = 0; i < 1; i++) {
+            System.out.println("-----------------------------------------------------------------");
+            RpcContext.getClientAttachment().getObjectAttachments().put("dubbo.tag", "gray");
+            Result<String> result = demoService.sayHello("world");
+            result.isSuccess();
+            System.out.println(new Date() + " Receive result ======> " + result);
+        }
+
+        System.out.println("-----------------------------------------------------------------");
 
         new Thread(()-> {
             while (true) {

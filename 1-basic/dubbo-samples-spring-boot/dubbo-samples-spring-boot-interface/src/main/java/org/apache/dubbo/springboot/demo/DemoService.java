@@ -16,7 +16,9 @@
  */
 package org.apache.dubbo.springboot.demo;
 
+import org.apache.dubbo.common.Result;
+
 public interface DemoService {
 
-    String sayHello(String name);
+    Result<String> sayHello(String name);
 }

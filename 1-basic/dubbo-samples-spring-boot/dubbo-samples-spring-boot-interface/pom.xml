@@ -28,4 +28,12 @@
 
   <artifactId>dubbo-samples-spring-boot-interface</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.dubbo</groupId>
+      <artifactId>dubbo-samples-spring-boot-common</artifactId>
+      <version>${project.parent.version}</version>
+    </dependency>
+  </dependencies>
+
 </project>

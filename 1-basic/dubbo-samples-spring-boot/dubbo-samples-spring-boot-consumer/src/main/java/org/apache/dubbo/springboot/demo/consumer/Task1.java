@@ -16,6 +16,7 @@
  */
 package org.apache.dubbo.springboot.demo.consumer;
 
+import org.apache.dubbo.common.Result;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Method;
 import org.apache.dubbo.springboot.demo.DemoService;
@@ -37,7 +38,7 @@ public class Task1 implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String result = demoService1.sayHello("world");
+        Result<String> result = demoService1.sayHello("world");
         System.out.println("Receive result ======> " + result);
 
         new Thread(()-> {

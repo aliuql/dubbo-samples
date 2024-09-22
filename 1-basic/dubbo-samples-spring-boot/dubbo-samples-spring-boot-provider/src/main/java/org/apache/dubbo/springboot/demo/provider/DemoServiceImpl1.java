@@ -1,5 +1,8 @@
 package org.apache.dubbo.springboot.demo.provider;
 
+import org.apache.dubbo.common.BizException;
+import org.apache.dubbo.common.ErrorStatus;
+import org.apache.dubbo.common.Result;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.config.annotation.Method;
 import org.apache.dubbo.springboot.demo.DemoService;
@@ -14,8 +17,9 @@ import org.apache.dubbo.springboot.demo.DemoService;
 public class DemoServiceImpl1 implements DemoService {
 
     @Override
-    public String sayHello(String name) {
-        return "Hello " + name;
+    public Result<String> sayHello(String name) {
+        throw new BizException(ErrorStatus.FAIL);
+        //return new Result<>("Hello " + name);
     }
 
 }
