@@ -55,7 +55,12 @@ public class Task implements CommandLineRunner {
             while (true) {
                 try {
                     Thread.sleep(1000);
-                    System.out.println(new Date() + " Receive result ======> " + demoService.sayHello("world"));
+
+                    RpcContext.getClientAttachment().getObjectAttachments().put("dubbo.tag", "gray");
+                    Result<String> result = demoService.sayHello("world");
+                    result.isSuccess();
+                    System.out.println(new Date() + " Receive result ======> " + result);
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     Thread.currentThread().interrupt();
