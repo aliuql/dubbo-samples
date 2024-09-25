@@ -23,5 +23,5 @@ import java.util.List;
 
 public interface DemoService {
 
-    Result<List<String>> sayHello(CupsContext context);
+    Result<List<String>> sayHello(CupsContext<String> context);
 }

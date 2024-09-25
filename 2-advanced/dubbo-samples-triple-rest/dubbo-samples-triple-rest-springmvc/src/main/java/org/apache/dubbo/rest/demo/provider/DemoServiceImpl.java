@@ -20,12 +20,10 @@ import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.rest.demo.DemoService;
 import org.apache.dubbo.rest.demo.pojo.User;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.alibaba.fastjson2.TypeReference;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -105,8 +103,9 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public String postMapUser(String formData) {
-        HashMap<String, User> userHashMap = JSON.parseObject(formData, new TypeReference<>() {});
-        return PREFIX + userHashMap.get("user1").getId() + " " + userHashMap.get("user2").getId();
+//        HashMap<String, User> userHashMap = JSON.parseObject(formData, new TypeReference<>() {});
+//        return PREFIX + userHashMap.get("user1").getId() + " " + userHashMap.get("user2").getId();
+        return "ok";
     }
 
     @Override

@@ -19,7 +19,7 @@ import java.util.List;
 public class DemoServiceImpl1 implements DemoService {
 
     @Override
-    public Result<List<String>> sayHello(CupsContext context) {
+    public Result<List<String>> sayHello(CupsContext<String> context) {
         //throw new BizException(ErrorStatus.FAIL);
         System.out.println("request cups context: " + context);
         List<String> messages = new ArrayList<>();

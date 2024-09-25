@@ -17,7 +17,7 @@ public class DemoServiceImpl2 implements DemoService {
 
 
     @Override
-    public Result<List<String>> sayHello(CupsContext context) {
+    public Result<List<String>> sayHello(CupsContext<String> context) {
         //throw new BizException(ErrorStatus.FAIL);
 //        System.out.println("request context: " + context);
 //        List<String> messages = new ArrayList<>();
