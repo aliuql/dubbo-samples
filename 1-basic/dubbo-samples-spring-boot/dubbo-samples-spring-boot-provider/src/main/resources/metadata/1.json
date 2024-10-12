@@ -1,0 +1,39 @@
+{
+  "app": "dubbo-provider",
+  "revision": "3e631cf5dd0384a21213eaaa081adb20",
+  "services": {
+    "test1/org.apache.dubbo.springboot.demo.DemoService:1.0:dubbo": {
+      "group": "test1",
+      "name": "org.apache.dubbo.springboot.demo.DemoService",
+      "params": {
+        "side": "provider",
+        "heartbeat": "36000000",
+        "release": "3.3.0",
+        "methods": "sayHello",
+        "logger": "slf4j",
+        "deprecated": "false",
+        "dubbo": "2.0.2",
+        "interface": "org.apache.dubbo.springboot.demo.DemoService",
+        "sayHello.sent": "true",
+        "sayHello.timeout": "80000",
+        "service-name-mapping": "true",
+        "version": "1.0",
+        "timeout": "9200",
+        "generic": "false",
+        "revision": "1.1",
+        "metadata-type": "local",
+        "application": "dubbo-provider",
+        "prefer.serialization": "hessian2,fastjson2",
+        "sayHello.return": "true",
+        "providerAddresses": "0.0.0.0",
+        "dynamic": "true",
+        "REGISTRY_CLUSTER": "default:dev",
+        "group": "test1"
+      },
+      "path": "org.apache.dubbo.springboot.demo.DemoService",
+      "port": 20880,
+      "protocol": "dubbo",
+      "version": "1.0"
+    }
+  }
+}

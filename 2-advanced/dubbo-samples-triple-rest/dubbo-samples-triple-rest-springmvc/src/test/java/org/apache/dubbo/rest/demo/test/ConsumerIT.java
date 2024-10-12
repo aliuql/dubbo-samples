@@ -49,6 +49,7 @@ public class ConsumerIT extends BaseTest {
     public void getParam() {
         String id = "123";
         String res = demoService.getParam(id);
+        System.out.println("-------------------" + res);
         Assert.assertEquals(PREFIX + id, res);
     }
 
@@ -60,6 +61,8 @@ public class ConsumerIT extends BaseTest {
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .toEntity(String.class);
+
+        System.out.println("-------------------" + responseEntity.getBody());
 
         Assert.assertEquals("\"" + PREFIX + id + "\"", responseEntity.getBody());
     }
@@ -415,7 +418,7 @@ public class ConsumerIT extends BaseTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userList)
                 .retrieve()
-                .toEntity(new ParameterizedTypeReference<>() {});
+                .toEntity(new ParameterizedTypeReference<List<User>>() {});
 
         Assert.assertEquals(userList, response.getBody());
     }

@@ -16,7 +16,7 @@
 
 spring:
   application:
-    name: dubbo-springboot-triple-rest-springmvc
+    name: triple-rest-springmvc
 dubbo:
   application:
     name: ${spring.application.name}
@@ -26,3 +26,11 @@ dubbo:
     port: 50052
     triple:
       verbose: true
+  registry:
+    address: nacos://150.158.15.11:38848
+    username: nacos
+    password: 123456
+    parameters:
+      namespace: dev
+    group: dubbo
+    cluster: default

@@ -76,7 +76,7 @@ public class BasicParamRequestIT extends BaseTest {
     @Test
     public void test() {
         BigInteger result17 = basicParamRequestService.bigInt(BigInteger.ONE, BigInteger.ONE);
-        Assert.assertEquals(BigInteger.TWO, result17);
+        Assert.assertEquals(2, result17);
 
         BigDecimal result18 = basicParamRequestService.bigDecimal(BigDecimal.ONE, BigDecimal.ZERO);
         Assert.assertEquals(BigDecimal.ONE, result18);
@@ -314,7 +314,7 @@ public class BasicParamRequestIT extends BaseTest {
                 .uri(toUri("/intArray?array={a}&array={b}"), 1, 1)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
-                .toEntity(new ParameterizedTypeReference<>() {});
+                .toEntity(new ParameterizedTypeReference<int[]>() {});
         Assert.assertArrayEquals(new int[] {1, 1}, result.getBody());
     }
 
@@ -324,7 +324,7 @@ public class BasicParamRequestIT extends BaseTest {
                 .uri(toUri("/longArray?array={a}&array={b}"), 1L, 1L)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
-                .toEntity(new ParameterizedTypeReference<>() {});
+                .toEntity(new ParameterizedTypeReference<long[]>() {});
         Assert.assertArrayEquals(new long[] {1L, 1L}, result.getBody());
     }
 

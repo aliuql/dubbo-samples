@@ -14,10 +14,10 @@ dubbo:
     protocols:
         tri:
             name: tri
-            port: -1
+            port: 50051
         dubbo:
             name: dubbo
-            port: -1
+            port: 20880
             heartbeat: 36000000
     registry:
         address: nacos://150.158.15.11:38848
@@ -34,6 +34,7 @@ dubbo:
         parameters:
             namespace: dev
         group: dubbo
+        report-metadata: true
     service:
         org.apache.dubbo.springboot.demo.DemoService.sayHello.timeout: 40000
         org.apache.dubbo.springboot.demo.DemoService.timeout: 30000

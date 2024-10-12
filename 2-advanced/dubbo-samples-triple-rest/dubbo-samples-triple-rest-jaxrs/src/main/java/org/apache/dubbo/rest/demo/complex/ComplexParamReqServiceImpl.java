@@ -29,6 +29,7 @@ import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @DubboService
 public class ComplexParamReqServiceImpl implements ComplexParamRequestService {
@@ -55,7 +56,7 @@ public class ComplexParamReqServiceImpl implements ComplexParamRequestService {
 
     @Override
     public List<String> testMapParam(Map<String, String> map) {
-        return map.values().stream().toList();
+        return map.values().stream().collect(Collectors.toList());
     }
 
     @Override
@@ -65,7 +66,7 @@ public class ComplexParamReqServiceImpl implements ComplexParamRequestService {
 
     @Override
     public List<String> testMapForm(MultivaluedMap<String, String> params) {
-        return params.values().stream().flatMap(List::stream).toList();
+        return params.values().stream().flatMap(List::stream).collect(Collectors.toList());
     }
 
     @Override
